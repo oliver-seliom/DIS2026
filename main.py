@@ -1,6 +1,5 @@
-
 def print_hello():
-    print("hello")
+    print("hello world")
 
 def goodbye():
     print("goodbye")
