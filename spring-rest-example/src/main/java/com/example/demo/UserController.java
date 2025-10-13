@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,9 +34,10 @@ public class UserController {
   }
 
   @PutMapping("/users/{id}")
-  public User updateUser(@PathVariable int id, @RequestBody User user) {
+  public User updateUser(@PathVariable int id, @RequestBody User user) throws NoResourceFoundException {
     // TODO: search for the user and update user in database
-    return user;
+    // Assume we did not find the user
+    throw new NoResourceFoundException(null, "User not found");
   }
 
   @DeleteMapping("/users/{id}")

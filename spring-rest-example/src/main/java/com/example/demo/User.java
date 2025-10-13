@@ -4,6 +4,7 @@ public class User {
 
   private String name;
   private int age;
+  private int id;
 
   public User(String name, int age) {
     this.name = name;
