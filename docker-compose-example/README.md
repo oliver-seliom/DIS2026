@@ -10,7 +10,7 @@ This project demonstrates a simple 3-tier web application:
 ┌─────────────┐      ┌─────────────┐      ┌─────────────┐
 │  Frontend   │ ───> │   Backend   │ ───> │  Database   │
 │  (Node.js)  │      │   (Flask)   │      │ (PostgreSQL)│
-│  Port 3000  │      │  Port 5000  │      │             │
+│  Port 3000  │      │  Port 4000  │      │             │
 └─────────────┘      └─────────────┘      └─────────────┘
        │                     │                     │
        │                     │                     │
@@ -29,7 +29,7 @@ This project demonstrates a simple 3-tier web application:
 
    - Handles business logic
    - CRUD operations for tasks
-   - Runs on port 5000
+   - Runs on port 4000
 
 3. **Database** - PostgreSQL
    - Persistent data storage
@@ -87,7 +87,7 @@ Each service has a health check to verify it's running correctly:
 
 - Docker Desktop installed
 - Docker Compose (comes with Docker Desktop)
-- No other services running on ports 3000, 5000, or 5432
+- No other services running on ports 3000, 4000, or 5432
 
 ### Running the Application
 
@@ -288,7 +288,7 @@ You must submit one screenshot per exercise in a zip file.
    ```bash
    docker compose ps
    ```
-3. Why does this fail? Because port 5000 is already bound!
+3. Why does this fail? Because port 4000 is already bound!
 
 4. To properly scale, you'd need a load balancer (like Nginx) and remove port mapping from backend. This is a more advanced topic.
 
@@ -368,7 +368,7 @@ You must submit one screenshot per exercise in a zip file.
    ```
 3. Flask auto-reloads - test immediately:
    ```bash
-   curl http://localhost:5000/api/hello
+   curl http://localhost:4000/api/hello
    ```
 4. No rebuild needed because of bind mount!
 
