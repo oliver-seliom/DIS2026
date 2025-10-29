@@ -204,7 +204,7 @@ You must submit one screenshot per exercise in a zip file.
 2. Inspect the frontend network:
 
    ```bash
-   docker network inspect docker compose-example_frontend-network
+   docker network inspect docker-compose-example_frontend-network
    ```
 
    Notice which containers are connected
@@ -212,7 +212,7 @@ You must submit one screenshot per exercise in a zip file.
 3. Inspect the backend network:
 
    ```bash
-   docker network inspect docker compose-example_backend-network
+   docker network inspect docker-compose-example_backend-network
    ```
 
 4. See which networks a specific container is connected to:
