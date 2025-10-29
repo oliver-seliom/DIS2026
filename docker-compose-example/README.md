@@ -231,7 +231,7 @@ You must submit one screenshot per exercise in a zip file.
 2. Inspect the postgres volume:
 
    ```bash
-   docker volume inspect docker compose-example_postgres-data
+   docker volume inspect docker-compose-example_postgres-data
    ```
 
    Note the "Mountpoint" - this is where Docker stores the data on your host
