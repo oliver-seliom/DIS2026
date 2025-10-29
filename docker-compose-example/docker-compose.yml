@@ -1,0 +1,71 @@
+services:
+  # PostgreSQL Database
+  database:
+    image: postgres:15-alpine
+    container_name: task_database
+    environment:
+      POSTGRES_USER: taskuser
+      POSTGRES_PASSWORD: taskpass
+      POSTGRES_DB: taskdb
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - backend-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U taskuser -d taskdb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Python Flask Backend API
+  backend:
+    build: ./backend
+    container_name: task_backend
+    environment:
+      DATABASE_URL: postgresql://taskuser:taskpass@database:5432/taskdb
+      FLASK_ENV: development
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./backend:/app
+    networks:
+      - backend-network
+      - frontend-network
+    depends_on:
+      database:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  # Node.js Express Frontend
+  frontend:
+    build: ./frontend
+    container_name: task_frontend
+    environment:
+      BACKEND_URL: http://backend:4000
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    networks:
+      - frontend-network
+    depends_on:
+      backend:
+        condition: service_healthy
+
+networks:
+  # Frontend network: connects frontend and backend
+  frontend-network:
+    driver: bridge
+  # Backend network: connects backend and database (isolated from frontend)
+  backend-network:
+    driver: bridge
+
+volumes:
+  # Named volume for PostgreSQL data persistence
+  postgres-data:
