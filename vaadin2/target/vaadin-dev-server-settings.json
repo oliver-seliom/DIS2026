@@ -1,0 +1,18 @@
+{
+  "frontendFolder": "/Users/oliverhoffman/tmp/DIS2026/vaadin2/./src/main/frontend",
+  "themeFolder": "themes",
+  "themeResourceFolder": "/Users/oliverhoffman/tmp/DIS2026/vaadin2/./src/main/frontend/generated/jar-resources",
+  "staticOutput": "/Users/oliverhoffman/tmp/DIS2026/vaadin2/target/classes/META-INF/VAADIN/webapp/VAADIN/static",
+  "generatedFolder": "generated",
+  "statsOutput": "/Users/oliverhoffman/tmp/DIS2026/vaadin2/target/classes/META-INF/VAADIN/config",
+  "frontendBundleOutput": "/Users/oliverhoffman/tmp/DIS2026/vaadin2/target/classes/META-INF/VAADIN/webapp",
+  "devBundleOutput": "/Users/oliverhoffman/tmp/DIS2026/vaadin2/target/dev-bundle/webapp",
+  "devBundleStatsOutput": "/Users/oliverhoffman/tmp/DIS2026/vaadin2/target/dev-bundle/config",
+  "i18nOutput": "target/classes/vaadin-i18n",
+  "jarResourcesFolder": "/Users/oliverhoffman/tmp/DIS2026/vaadin2/./src/main/frontend/generated/jar-resources",
+  "themeName": "default",
+  "clientServiceWorkerSource": "/Users/oliverhoffman/tmp/DIS2026/vaadin2/target/sw.ts",
+  "pwaEnabled": false,
+  "offlineEnabled": false,
+  "offlinePath": "'offline.html'"
+}
